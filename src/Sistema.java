@@ -10,7 +10,8 @@ public class Sistema {
             admin.imprimir();
             System.out.println();
             artist.imprimir();
-    }
+            System.out.println("teste");
+        }
 }
 
    
