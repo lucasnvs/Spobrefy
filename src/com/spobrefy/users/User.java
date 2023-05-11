@@ -28,7 +28,7 @@ public class User {
         return password;
     }
     
-    public int getIdUser() {
+    public int getId() {
         return idUser;
     }
 
