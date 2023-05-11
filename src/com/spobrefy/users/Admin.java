@@ -19,3 +19,5 @@ public class Admin extends User {
         System.out.println(text);
     }
 }
+    
+
