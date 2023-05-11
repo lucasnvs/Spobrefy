@@ -1,4 +1,4 @@
-package com.spobrefy;
+package com.spobrefy.content;
 import com.spobrefy.users.Artist;
 
 public class Music {

@@ -32,10 +32,11 @@ public class User {
         return idUser;
     }
 
-    public void imprimir() {
+    public void print() {
         String text = String.format("Id: %d\nNickname: %s\nPassword: %s\nEmail: %s", idUser, nickname, password, email);
         System.out.println(text);
     }
+
     public static User create() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Qual seu nick?");
