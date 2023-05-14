@@ -14,6 +14,18 @@ public class NotDefaultUser<T extends NotDefaultUser<T>> extends User {
         this.age = age;
     }
 
+    public String getCpf() {
+        return cpf;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getBirthDate() {
+        return birthDate;
+    }
+
     public void print() {
         String text = String.format("Id: %d\nNickname: %s\nPassword: %s\nEmail: %s\nIdade: %d anos\nCPF: %s\nData de Aniversário: %s", getId(), nickname, password, email, age, cpf, birthDate);
         System.out.println(text);
@@ -29,14 +41,14 @@ public class NotDefaultUser<T extends NotDefaultUser<T>> extends User {
         String password = scanner.nextLine();
         System.out.println("Qual seu cpf?");
         String cpf = scanner.nextLine();
-        System.out.println("Qual sua data de nascimento?");
+        System.out.println("Qual sua data de nascimento? dd/mm/aaaa");
         String birthDate = scanner.nextLine();
-        System.out.println("Qual sua senha?");
-        int age = scanner.nextInt();
+        System.out.println("Qual sua idade em anos?");
+        Integer age = scanner.nextInt();
         scanner.close();
 
         try {
-            return userType.getDeclaredConstructor(String.class, String.class, String.class, String.class, String.class, int.class)
+            return userType.getDeclaredConstructor(String.class, String.class, String.class, String.class, String.class, Integer.class)
                     .newInstance(nick, email, password, cpf, birthDate, age);
         } catch (Exception e) {
             e.printStackTrace();
