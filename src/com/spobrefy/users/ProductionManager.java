@@ -1,5 +1,7 @@
 package com.spobrefy.users;
 
+import java.util.Scanner;
+
 public class ProductionManager extends NotDefaultUser<ProductionManager> {
 
     public ProductionManager(String nickname, String email, String password, String cpf, String birthDate, Integer age) {
@@ -7,6 +9,7 @@ public class ProductionManager extends NotDefaultUser<ProductionManager> {
     }
 
     public static ProductionManager create() {
-        return NotDefaultUser.create(ProductionManager.class);
+        Scanner scanner = new Scanner(System.in);
+        return NotDefaultUser.create(ProductionManager.class, scanner);
     }
 }

@@ -31,8 +31,8 @@ public class NotDefaultUser<T extends NotDefaultUser<T>> extends User {
         System.out.println(text);
     }
 
-    public static <T extends NotDefaultUser<T>> T create(Class<T> userType) {
-        Scanner scanner = new Scanner(System.in);
+    public static <T extends NotDefaultUser<T>> T create(Class<T> userType, Scanner scanner) {
+        // necessário usar o scanner como parâmetro para ele não ser fechado podendo reaproveitar este método em outros métodos create()
         System.out.println("Qual seu nick?");
         String nick = scanner.nextLine();
         System.out.println("Qual seu email?");
@@ -45,7 +45,6 @@ public class NotDefaultUser<T extends NotDefaultUser<T>> extends User {
         String birthDate = scanner.nextLine();
         System.out.println("Qual sua idade em anos?");
         Integer age = scanner.nextInt();
-        scanner.close();
 
         try {
             return userType.getDeclaredConstructor(String.class, String.class, String.class, String.class, String.class, Integer.class)

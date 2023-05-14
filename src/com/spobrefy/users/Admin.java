@@ -5,9 +5,10 @@ import java.util.Scanner;
 public class Admin extends NotDefaultUser<Admin> {
     private String spobrefyToken;
     
-    public Admin(String spobrefyToken, String nickname, String email, String password, String cpf, String birthDate, Integer age) {
+    // token removido do construtor por incompatibilidade com o metodo create do NotDefaultUser e adicionado no método create local desta classe
+    // depois será necessário uma verificação para criar o admin se seu token for válido.
+    public Admin(String nickname, String email, String password, String cpf, String birthDate, Integer age) {
         super(nickname, email, password, cpf, birthDate, age);
-        this.spobrefyToken = spobrefyToken;
     }
 
     public String getSpobrefyToken() {
@@ -15,10 +16,11 @@ public class Admin extends NotDefaultUser<Admin> {
     }
 
     public static Admin create() {
-        Admin admin = NotDefaultUser.create(Admin.class);
         Scanner sc = new Scanner(System.in);
+        Admin admin = NotDefaultUser.create(Admin.class, sc);
         System.out.println("Qual o token de acesso?");
-        String token = sc.nextLine();   
+        String token = sc.next();
+        System.out.println(token);   
         sc.close();
 
         admin.spobrefyToken = token;
