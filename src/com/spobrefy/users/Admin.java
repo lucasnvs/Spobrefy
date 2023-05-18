@@ -15,13 +15,11 @@ public class Admin extends NotDefaultUser<Admin> {
         return spobrefyToken;
     }
 
-    public static Admin create() {
-        Scanner sc = new Scanner(System.in);
-        Admin admin = NotDefaultUser.create(Admin.class, sc);
+    public static Admin create(Scanner scanner) {
+        Admin admin = NotDefaultUser.create(Admin.class, scanner);
         System.out.println("Qual o token de acesso?");
-        String token = sc.next();
+        String token = scanner.next();
         System.out.println(token);   
-        sc.close();
 
         admin.spobrefyToken = token;
         return admin;

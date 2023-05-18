@@ -8,8 +8,7 @@ public class ProductionManager extends NotDefaultUser<ProductionManager> {
         super(nickname, email, password, cpf, birthDate, age);
     }
 
-    public static ProductionManager create() {
-        Scanner scanner = new Scanner(System.in);
+    public static ProductionManager create(Scanner scanner) {
         return NotDefaultUser.create(ProductionManager.class, scanner);
     }
 }

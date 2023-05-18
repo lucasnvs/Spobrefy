@@ -44,22 +44,15 @@ public class Music {
         return null;
     }
 
-    public static Music create(List<Artist> list) {
+    public static Music create(List<Artist> list, Scanner scanner) {
         // nao consegui consertar o bug
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Qual o título?");
         String title = scanner.nextLine();
-        if (!scanner.hasNextLine()) {
-            scanner.close();
-            return null;
-        }
         System.out.println("Qual o nome do autor?");
         String authorName = scanner.nextLine();
 
-
         Artist author = findAuthor(list, authorName);
         Music music = new Music(title, author);
-        scanner.close();
         return music;
     }
 

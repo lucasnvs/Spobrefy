@@ -37,15 +37,13 @@ public class User {
         System.out.println(text);
     }
 
-    public static User create() {
-        Scanner scanner = new Scanner(System.in);
+    public static User create(Scanner scanner) {
         System.out.println("Qual seu nick?");
         String nick = scanner.nextLine();
         System.out.println("Qual seu email?");
         String email = scanner.nextLine();
         System.out.println("Qual sua senha?");
         String password = scanner.nextLine();
-        scanner.close();
         User usuario = new User(nick, email, password);
         return usuario;
     }

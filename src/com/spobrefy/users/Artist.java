@@ -8,8 +8,7 @@ public class Artist extends NotDefaultUser<Artist>{
         super(nickname, email, password, cpf, birthDate, age);
     }
 
-    public static Artist create() {
-        Scanner scanner = new Scanner(System.in);
+    public static Artist create(Scanner scanner) {
         return NotDefaultUser.create(Artist.class, scanner);
     }
 }
