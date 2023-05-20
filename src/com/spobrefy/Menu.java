@@ -4,7 +4,7 @@ import java.util.Scanner;
 import com.spobrefy.users.User;
 
 public class Menu {
-
+    // talvez mover as funções para o sistema e usar aq pelo parametro de sistema, deixando apenas os dialogs;
     public void init(Sistema sistema) {
         System.out.println("=======================================================================");
         System.out.println("Olá querido usuário, para acessar o sistema será necessário logar :(");

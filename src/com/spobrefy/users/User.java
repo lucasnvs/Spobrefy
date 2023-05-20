@@ -1,19 +1,28 @@
 package com.spobrefy.users;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.spobrefy.content.Playlist;
+
 public class User {
+    protected int idUser;
+    private static int count = 0;
     protected String nickname;
     protected String email;
     protected String password;
-    protected int idUser;
-    private static int count = 0;
+    private ArrayList<Playlist> allPlaylists;
 
     public User(String nick, String email, String password) {
         this.nickname = nick;
         this.email = email;
         this.password = password;
+        this.allPlaylists = new ArrayList<>();
         idUser = ++count;
+    }
+
+    public void addPlaylist(Playlist playlist) {
+        this.allPlaylists.add(playlist);
     }
 
     public String getNickname() {
@@ -33,7 +42,12 @@ public class User {
     }
 
     public void print() {
-        String text = String.format("Id: %d\nNickname: %s\nPassword: %s\nEmail: %s", idUser, nickname, password, email);
+        String txt = "";
+        for (Playlist playlist : allPlaylists) {
+            txt += "-- "+playlist.getName()+" --\n";
+        }
+
+        String text = String.format("Id: %d\nNickname: %s\nPassword: %s\nEmail: %s\nPlaylists do usuário: \n %s", idUser, nickname, password, email, txt);
         System.out.println(text);
     }
 

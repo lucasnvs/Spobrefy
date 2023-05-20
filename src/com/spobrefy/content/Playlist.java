@@ -15,6 +15,17 @@ public class Playlist {
         this.musics = musics;
     }
 
+    public User getOwner() {
+        return owner;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    public ArrayList<Music> getMusics() {
+        return musics;
+    }
+
     public void addMusic() {
         // adicionar música;
     }
@@ -24,7 +35,6 @@ public class Playlist {
         for (Music music : musics) {
             txt += "-- "+music.getName()+" --\n";
         }
-
 
         String text = String.format("Dono: %s\nNome da Playlist: %s\nMusicas: \n  %s", owner.getNickname(), name, txt);
         System.out.println(text);

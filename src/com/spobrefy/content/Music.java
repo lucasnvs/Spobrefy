@@ -13,6 +13,8 @@ public class Music {
     private Double rating;
 
     // rating é adicionado depois de acordo com aceitação do publico
+
+    // necessario rever este metodo e o funcionamento junto com os parametros do metodo create
     public Music(String name, Artist author) {
         this.name = name;
         this.author = author;
@@ -57,7 +59,7 @@ public class Music {
     }
 
     public void print() {
-        String text = String.format("Id: %d\nTítulo: %s\nAutor: %s\nRating: %2.1f", idMusic, name, author.getEmail(),
+        String text = String.format("Id: %d\nTítulo: %s\nAutor: %s\nRating: %2.1f", idMusic, name, author.getNickname(),
                 rating);
         System.out.println(text);
     }

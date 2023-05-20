@@ -44,22 +44,25 @@ public class Sistema {
         sistema.addUser(matue);
         sistema.addUser(lukinhas222);
 
-        Menu menu = new Menu();
-        menu.init(sistema);
+        // Menu menu = new Menu();
+        // menu.init(sistema);
 
-        // Music PayPal = Music.create(artistList, scanner);
-        // Music conexoes = Music.create(artistList, scanner);
+        Music PayPal = new Music("PayPal", teto);
+        Music conexoes = new Music("Conexões de Máfia", matue);
 
-        // ArrayList<Music> musicas = new ArrayList<>();
-        // musicas.add(PayPal);
-        // musicas.add(conexoes);
+        ArrayList<Music> musicas = new ArrayList<>();
+        musicas.add(PayPal);
+        musicas.add(conexoes);
                 
-        // PayPal.print();
-        // conexoes.print();
+        PayPal.print();
+        conexoes.print();
 
-        // Playlist trintaPraUm = new Playlist(matue, "Melhores da 30praUm", musicas);
+        Playlist trintaPraUm = new Playlist(matue, "Melhores da 30praUm", musicas);
 
-        // trintaPraUm.print();
+        lukinhas222.addPlaylist(trintaPraUm);
+        trintaPraUm.print();
+        lukinhas222.print();
+        
         scanner.close();
     }
 }
