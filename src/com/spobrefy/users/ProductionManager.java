@@ -2,9 +2,9 @@ package com.spobrefy.users;
 
 import java.util.Scanner;
 
-public class ProductionManager extends NotDefaultUser<ProductionManager> {
+public class ProductionManager extends NotDefaultUser {
 
-    public ProductionManager(String nickname, String email, String password, String cpf, String birthDate, Integer age) {
+    private ProductionManager(String nickname, String email, String password, String cpf, String birthDate, Integer age) {
         super(nickname, email, password, cpf, birthDate, age);
     }
 

@@ -2,9 +2,9 @@ package com.spobrefy.users;
 
 import java.util.Scanner;
 
-public class Artist extends NotDefaultUser<Artist>{
+public class Artist extends NotDefaultUser{
 
-    public Artist(String nickname, String email, String password, String cpf, String birthDate, Integer age) {
+    private Artist(String nickname, String email, String password, String cpf, String birthDate, Integer age) {
         super(nickname, email, password, cpf, birthDate, age);
     }
 

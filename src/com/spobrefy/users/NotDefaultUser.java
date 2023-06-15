@@ -2,12 +2,12 @@ package com.spobrefy.users;
 
 import java.util.Scanner;
 
-public class NotDefaultUser<T extends NotDefaultUser<T>> extends User {
+public class NotDefaultUser extends User {
     private String cpf;
     private int age;
     private String birthDate;
 
-    public NotDefaultUser(String nickname, String email, String password, String cpf, String birthDate, int age) {
+    protected NotDefaultUser(String nickname, String email, String password, String cpf, String birthDate, int age) {
         super(nickname, email, password);
         this.cpf = cpf;
         this.birthDate = birthDate;
@@ -31,7 +31,7 @@ public class NotDefaultUser<T extends NotDefaultUser<T>> extends User {
         System.out.println(text);
     }
 
-    public static <T extends NotDefaultUser<T>> T create(Class<T> userType, Scanner scanner) {
+    public static <T extends NotDefaultUser> T create(Class<T> userType, Scanner scanner) {
         System.out.println("Qual seu nick?");
         String nick = scanner.nextLine();
         System.out.println("Qual seu email?");
