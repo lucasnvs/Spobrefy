@@ -1,5 +1,4 @@
 package com.spobrefy;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.spobrefy.dao.ArtistsDAO;
