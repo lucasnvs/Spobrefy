@@ -41,12 +41,10 @@ public class NotDefaultUser extends User {
         String cpf = scanner.nextLine();
         System.out.println("Qual sua data de nascimento? dd/mm/aaaa");
         String birthDate = scanner.nextLine();
-        System.out.println("Qual sua idade em anos?");
-        Integer age = scanner.nextInt();
 
         try {
-            return userType.getDeclaredConstructor(String.class, String.class, String.class, String.class, String.class, Integer.class)
-                    .newInstance(nick, email, password, cpf, birthDate, age);
+            return userType.getDeclaredConstructor(String.class, String.class, String.class, String.class, String.class)
+                    .newInstance(nick, email, password, cpf, birthDate);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
