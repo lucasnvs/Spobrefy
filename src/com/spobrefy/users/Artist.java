@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class Artist extends NotDefaultUser{
 
-    private Artist(String nickname, String email, String password, String cpf, String birthDate, Integer age) {
-        super(nickname, email, password, cpf, birthDate, age);
+    public Artist(String nickname, String email, String password, String cpf, String birthDate) {
+        super(nickname, email, password, cpf, birthDate);
     }
 
     public static Artist create(Scanner scanner) {

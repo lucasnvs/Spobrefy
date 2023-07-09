@@ -1,4 +1,6 @@
 package com.spobrefy;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import com.spobrefy.dao.ArtistsDAO;
@@ -6,16 +8,25 @@ import com.spobrefy.dao.UsersDAO;
 import com.spobrefy.users.*;
 
 public class Sistema {
-    public Scanner scan = new Scanner(System.in); 
-    public UsersDAO allUsers = UsersDAO.getInstance();
-    public ArtistsDAO allArtists;
+    private String sysName;
+    private Scanner scan = new Scanner(System.in); 
+    private UsersDAO allUsers = UsersDAO.getInstance();
+    private ArtistsDAO allArtists = ArtistsDAO.getInstance();
 
-    public Sistema() {
-
+    public Sistema(String sysName) {
+        this.sysName = sysName;
     }
 
     private void addUser(User user) {
         this.allUsers.save(user);
+    }
+
+    public void showArtists() { // temporario
+        System.out.println("| ARTISTAS DO "+sysName.toUpperCase());
+        System.out.println();
+        for(Artist artist : allArtists.findAll()) {
+            System.out.println(":: Id: "+artist.getId()+" :: Nome: "+artist.getNickname()+" :: Email: "+artist.getEmail());
+        }
     }
 
     public void registerUser() {

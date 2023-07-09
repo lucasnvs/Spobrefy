@@ -4,8 +4,8 @@ import com.spobrefy.Sistema;
 
 public class allTest {
     public static void main(String[] args) {
-        Sistema sistema = new Sistema();
-
+        Sistema sistema = new Sistema("Spobrefy");
+        sistema.showArtists();
         // Scanner scanner = sistema.scan;
         // List<Artist> artistList = new ArrayList<>();
 
