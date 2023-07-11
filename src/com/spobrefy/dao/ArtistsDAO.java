@@ -11,6 +11,8 @@ public class ArtistsDAO implements DaoInterface<Artist> {
 
     private ArtistsDAO() {
         artistsList = new ArrayList<>();
+        artistsList.add(new Artist("Matue", "matue30@email.com", "30praUm", "9822554812", "22/03/1998"));
+        artistsList.add(new Artist("Veigh", "veighbaby@email.com", "tururum", "2349281022", "16/08/2000"));
     }
 
     public static ArtistsDAO getInstance() {

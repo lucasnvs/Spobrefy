@@ -42,12 +42,12 @@ public class User {
     }
 
     public void print() {
-        String txt = "";
+        String txtPlaylist = "";
         for (Playlist playlist : allPlaylists) {
-            txt += "-- "+playlist.getName()+" --\n";
+            txtPlaylist += "-- "+playlist.getName()+" --\n";
         }
 
-        String text = String.format("Id: %d\nNickname: %s\nPassword: %s\nEmail: %s\nPlaylists do usuário: \n %s", idUser, nickname, password, email, txt);
+        String text = String.format("Id: %d\nNickname: %s\nPassword: %s\nEmail: %s\nPlaylists do usuário: \n %s", idUser, nickname, password, email, txtPlaylist);
         System.out.println(text);
     }
 

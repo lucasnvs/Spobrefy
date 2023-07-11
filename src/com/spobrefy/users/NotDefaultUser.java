@@ -1,17 +1,16 @@
 package com.spobrefy.users;
 
 import java.util.Scanner;
+import com.spobrefy.Util;
 
 public class NotDefaultUser extends User {
     private String cpf;
-    private int age;
     private String birthDate;
 
-    protected NotDefaultUser(String nickname, String email, String password, String cpf, String birthDate, int age) {
+    protected NotDefaultUser(String nickname, String email, String password, String cpf, String birthDate) {
         super(nickname, email, password);
         this.cpf = cpf;
         this.birthDate = birthDate;
-        this.age = age;
     }
 
     public String getCpf() {
@@ -19,7 +18,7 @@ public class NotDefaultUser extends User {
     }
 
     public int getAge() {
-        return age;
+        return Util.findAge( birthDate, "dd/mm/aaaa");
     }
 
     public String getBirthDate() {
@@ -27,7 +26,7 @@ public class NotDefaultUser extends User {
     }
 
     public void print() {
-        String text = String.format("Id: %d\nNickname: %s\nPassword: %s\nEmail: %s\nIdade: %d anos\nCPF: %s\nData de Aniversário: %s", getId(), nickname, password, email, age, cpf, birthDate);
+        String text = String.format("Id: %d\nNickname: %s\nPassword: %s\nEmail: %s\nIdade: %d anos\nCPF: %s\nData de Aniversário: %s", getId(), nickname, password, email, getAge(), cpf, birthDate);
         System.out.println(text);
     }
 
@@ -42,12 +41,10 @@ public class NotDefaultUser extends User {
         String cpf = scanner.nextLine();
         System.out.println("Qual sua data de nascimento? dd/mm/aaaa");
         String birthDate = scanner.nextLine();
-        System.out.println("Qual sua idade em anos?");
-        Integer age = scanner.nextInt();
 
         try {
-            return userType.getDeclaredConstructor(String.class, String.class, String.class, String.class, String.class, Integer.class)
-                    .newInstance(nick, email, password, cpf, birthDate, age);
+            return userType.getDeclaredConstructor(String.class, String.class, String.class, String.class, String.class)
+                    .newInstance(nick, email, password, cpf, birthDate);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
