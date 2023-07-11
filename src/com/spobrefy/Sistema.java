@@ -36,7 +36,6 @@ public class Sistema {
     }
 
     public Boolean login() {
-
             Integer aux;
             System.out.println("LOGIN DE USUÁRIO:");
             System.out.println("=======================================================================");

@@ -1,6 +1,9 @@
 package com.spobrefy.test;
 
+import com.spobrefy.Menu;
 import com.spobrefy.Sistema;
+
+// import com.spobrefy.Sistema;
 
 public class allTest {
     public static void main(String[] args) {
@@ -19,8 +22,8 @@ public class allTest {
         // sistema.addUser(matue);
         // sistema.addUser(lukinhas222);
 
-        // Menu menu = new Menu();
-        // menu.init(sistema);
+        Menu menu = new Menu();
+        menu.init(sistema);
         
         // Music PayPal = new Music("PayPal", teto);
         // Music conexoes = new Music("Conexões de Máfia", matue);
