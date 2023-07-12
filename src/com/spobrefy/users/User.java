@@ -11,18 +11,22 @@ public class User {
     protected String nickname;
     protected String email;
     protected String password;
-    private ArrayList<Playlist> allPlaylists;
+    private ArrayList<Playlist> playlists;
 
     public User(String nick, String email, String password) {
         this.nickname = nick;
         this.email = email;
         this.password = password;
-        this.allPlaylists = new ArrayList<>();
+        this.playlists = new ArrayList<>();
         idUser = ++count;
     }
 
+    public ArrayList<Playlist> getPlaylist() {
+        return playlists;
+    }
+
     public void addPlaylist(Playlist playlist) {
-        this.allPlaylists.add(playlist);
+        this.playlists.add(playlist);
     }
 
     public String getNickname() {
@@ -41,13 +45,33 @@ public class User {
         return idUser;
     }
 
+    public void setNickname(String newNickname) {
+        this.nickname = newNickname;
+    }
+
+    private void setPassword(String newPass) {
+        this.password = newPass;
+    }
+
+    public void setEmail(String newEmail) {
+        this.email = newEmail;
+    }
+
+    public boolean changePassword(String lastPass, String newPass) {
+        if(lastPass.equals(this.password)) {
+            setPassword(newPass);
+            return true;
+        }
+        return false;
+    }
+
     public void print() {
         String txtPlaylist = "";
-        for (Playlist playlist : allPlaylists) {
+        for (Playlist playlist : playlists) {
             txtPlaylist += "-- "+playlist.getName()+" --\n";
         }
 
-        String text = String.format("Id: %d\nNickname: %s\nPassword: %s\nEmail: %s\nPlaylists do usuário: \n %s", idUser, nickname, password, email, txtPlaylist);
+        String text = String.format("| Id: %d\n| Nickname: %s\n| Senha: %s\n| Email: %s\n| Playlists do usuário: \n %s", idUser, nickname, password, email, txtPlaylist);
         System.out.println(text);
     }
 

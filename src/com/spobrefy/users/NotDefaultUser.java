@@ -2,6 +2,7 @@ package com.spobrefy.users;
 
 import java.util.Scanner;
 import com.spobrefy.Util;
+import com.spobrefy.content.Playlist;
 
 public class NotDefaultUser extends User {
     private String cpf;
@@ -25,8 +26,16 @@ public class NotDefaultUser extends User {
         return birthDate;
     }
 
+    public void setCPF(String newCPF) {
+        this.cpf = newCPF;
+    }
+
     public void print() {
-        String text = String.format("Id: %d\nNickname: %s\nPassword: %s\nEmail: %s\nIdade: %d anos\nCPF: %s\nData de Aniversário: %s", getId(), nickname, password, email, getAge(), cpf, birthDate);
+        String txtPlaylist = "";
+        for (Playlist playlist : this.getPlaylist()) {
+            txtPlaylist += "-- "+playlist.getName()+" --\n";
+        }
+        String text = String.format("| Id: %d\n| Nickname: %s\n| Senha: %s\n| Email: %s\n| Idade: %d anos\n| CPF: %s\n| Data de Aniversário: %s\n| Playlists do Usuário: \n %s", getId(), nickname, password, email, getAge(), cpf, birthDate, txtPlaylist);
         System.out.println(text);
     }
 
