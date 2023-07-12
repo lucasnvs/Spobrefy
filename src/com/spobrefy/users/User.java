@@ -13,7 +13,7 @@ public class User {
     protected String password;
     private ArrayList<Playlist> allPlaylists;
 
-    protected User(String nick, String email, String password) {
+    public User(String nick, String email, String password) {
         this.nickname = nick;
         this.email = email;
         this.password = password;

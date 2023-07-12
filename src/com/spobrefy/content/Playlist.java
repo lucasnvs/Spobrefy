@@ -9,10 +9,10 @@ public class Playlist {
     private String name;
     private ArrayList<Music> musics;  
 
-    public Playlist(User owner, String name, ArrayList<Music> musics) { // criar uma lista vazia independente do contrutor e add musicas pelo metodo
+    public Playlist(User owner, String name) { // criar uma lista vazia independente do contrutor e add musicas pelo metodo
         this.owner = owner;
         this.name = name;
-        this.musics = musics;
+        this.musics = new ArrayList<>();
     }
 
     public User getOwner() {
@@ -22,12 +22,17 @@ public class Playlist {
     public String getName() {
         return name;
     }
+
+    public int size() {
+        return musics.size();
+    }
+
     public ArrayList<Music> getMusics() {
         return musics;
     }
 
-    public void addMusic() {
-        // adicionar música;
+    public void addMusic(Music music) {
+        musics.add(music);
     }
 
     public void print() {

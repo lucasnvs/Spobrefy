@@ -1,35 +1,47 @@
 package com.spobrefy;
 import java.util.Scanner;
 
+import com.spobrefy.content.Music;
 import com.spobrefy.dao.ArtistsDAO;
+import com.spobrefy.dao.MusicsDAO;
 import com.spobrefy.dao.UsersDAO;
 import com.spobrefy.users.*;
 
 public class Sistema {
     private String sysName;
+    private User loggedUser;
     private Scanner scan = new Scanner(System.in); 
     private UsersDAO allUsers = UsersDAO.getInstance();
     private ArtistsDAO allArtists = ArtistsDAO.getInstance();
+    private MusicsDAO allMusics = MusicsDAO.getInstance();
 
     public Sistema(String sysName) {
         this.sysName = sysName;
     }
 
-    private void addUser(User user) {
-        this.allUsers.save(user);
+    public User getLoggedUser() {
+        return loggedUser;
     }
 
-    public void showArtists() { // temporario
+    public void showArtists() { 
         System.out.println("| ARTISTAS DO "+sysName.toUpperCase());
-        System.out.println();
+        System.out.println("|");
         for(Artist artist : allArtists.findAll()) {
-            System.out.println(":: Id: "+artist.getId()+" :: Nome: "+artist.getNickname()+" :: Email: "+artist.getEmail());
+            System.out.println("|::ID: "+artist.getId()+" ::NOME: "+artist.getNickname()+" ::MÚSICAS POSTADAS: "+ artist.getAuthoredPlaylist().size());
         }
     }
 
+    public void showMusics() {
+        System.out.println("| MÚSICAS DO "+sysName.toUpperCase());
+        System.out.println("|");
+        for( Music music : allMusics.findAll()) {
+            System.out.println("|::ID: "+music.getId()+" ::NOME: "+music.getName()+" ::AUTHOR: "+music.getAuthor().getNickname());
+        }
+    }
     public void registerUser() {
         User user = User.create(this.scan);
-        this.addUser(user);
+        this.allUsers.save(user);
+
         System.out.println("=======================================================================");
         System.out.println("CONTA REGISTRADA COM SUCESSO!");
         System.out.println("=======================================================================");
@@ -38,6 +50,7 @@ public class Sistema {
     private boolean loginVerify(String nick, String pass) {
         for (User user : allUsers.findAll()) {
             if (user.getNickname().equals(nick) && user.getPassword().equals(pass)) {
+                loggedUser = user;
                 return true;
             }
         }

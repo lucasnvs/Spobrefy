@@ -11,6 +11,8 @@ public class UsersDAO implements DaoInterface<User> {
 
     private UsersDAO() {
         usersList = new ArrayList<>();
+        usersList.add(new User("lucas", "lucas@email.com", "pastel2020"));
+        usersList.addAll(ArtistsDAO.getInstance().findAll());
     }
 
     public static UsersDAO getInstance() {
@@ -39,7 +41,7 @@ public class UsersDAO implements DaoInterface<User> {
 
     @Override
     public void update(User user) {
-        // Implementação da lógica de atualização do artista
+        
     }
 
     @Override

@@ -1,12 +1,19 @@
 package com.spobrefy.dao;
 
+import java.util.ArrayList;
 import java.util.List;
-
 import com.spobrefy.content.Music;
 
 public class MusicsDAO implements DaoInterface<Music> {
     private static final MusicsDAO instance = new MusicsDAO();
     private List<Music> musicList;
+
+    public MusicsDAO() {
+        musicList = new ArrayList<>();
+        musicList.add(new Music("Novo Balanco", ArtistsDAO.getInstance().findById(3)));
+        musicList.add(new Music("Deluxe", ArtistsDAO.getInstance().findById(3)));
+        musicList.add(new Music("Conexões de Máfia", ArtistsDAO.getInstance().findById(2)));
+    }
 
     public static MusicsDAO getInstance() {
         return instance;
@@ -34,7 +41,7 @@ public class MusicsDAO implements DaoInterface<Music> {
 
     @Override
     public void update(Music object) {
-        // todo implementation
+        
     }
 
     @Override

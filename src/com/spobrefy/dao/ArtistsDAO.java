@@ -41,7 +41,7 @@ public class ArtistsDAO implements DaoInterface<Artist> {
 
     @Override
     public void update(Artist artist) {
-        // Implementação da lógica de atualização do artista
+
     }
 
     @Override

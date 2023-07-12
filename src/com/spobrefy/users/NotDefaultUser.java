@@ -18,7 +18,7 @@ public class NotDefaultUser extends User {
     }
 
     public int getAge() {
-        return Util.findAge( birthDate, "dd/mm/aaaa");
+        return Util.findAge( birthDate, "dd/MM/yyyy");
     }
 
     public String getBirthDate() {
